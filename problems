@@ -1,0 +1,4 @@
+Prolblems needed to know.
+1; 序列化和解序列化，看c#中对象序列化成字符串，JavaScript中解序列化。
+
+2： gdb调试coredump文件。
