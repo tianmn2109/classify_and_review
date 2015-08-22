@@ -1,3 +1,6 @@
+c++ 资料
+    http://www.cnblogs.com/nzbbody/category/518367.html   134个c++问题
+
 1: new, delete, malloc, free, operator new, placement new.
      http://www.cnblogs.com/fly1988happy/archive/2012/04/26/2470542.html
      http://blog.csdn.net/huazhongkejidaxuezpp/article/details/20731797#0-tsina-1-23003-397232819ff9a47a7b7e80a40613cfe1
