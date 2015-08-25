@@ -22,3 +22,6 @@ c++ 资料
    class B: public A{void f(){cout << "B" << endl;}};
    A *a = new B(); // 输出 A  编译时确定
    
+ 4： static_cast, dynamic_cast, const_cast, reinterpret_cast
+    http://www.cnblogs.com/jerry19880126/archive/2012/08/14/2638192.html
+   
