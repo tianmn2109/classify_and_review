@@ -28,4 +28,9 @@ c++ 资料
     
  5: volatile
     http://www.cnblogs.com/chio/archive/2007/11/24/970632.html
+    
+6: const,volatile,restrict的用法总结
+   http://www.jb51.net/article/42348.htm#50347-tsina-1-93488-fe90445b441dc02e06e924681e164bcd
+7: c++ union 
+ http://blog.chinaunix.net/uid-21754115-id-187514.html#0-tsina-1-80275-397232819ff9a47a7b7e80a40613cfe1
    
