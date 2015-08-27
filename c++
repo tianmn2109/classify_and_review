@@ -24,6 +24,7 @@ c++ 资料
    
  4： static_cast, dynamic_cast, const_cast, reinterpret_cast
     http://www.cnblogs.com/jerry19880126/archive/2012/08/14/2638192.html
+    http://www.cnblogs.com/chio/archive/2007/07/18/822389.html
     
  5: volatile
     http://www.cnblogs.com/chio/archive/2007/11/24/970632.html
