@@ -32,5 +32,18 @@ c++ 资料
 6: const,volatile,restrict的用法总结
    http://www.jb51.net/article/42348.htm#50347-tsina-1-93488-fe90445b441dc02e06e924681e164bcd
 7: c++ union 
- http://blog.chinaunix.net/uid-21754115-id-187514.html#0-tsina-1-80275-397232819ff9a47a7b7e80a40613cfe1
+   http://blog.chinaunix.net/uid-21754115-id-187514.html#0-tsina-1-80275-397232819ff9a47a7b7e80a40613cfe1
+   http://bbs.csdn.net/topics/390408109
+8: explicit
+   http://www.cnblogs.com/dwdxdy/archive/2012/07/17/2595479.html
+9: static, const, const static,数据成员初始化
+   http://blog.csdn.net/liuxialong/article/details/6573025#0-tsina-1-21588-397232819ff9a47a7b7e80a40613cfe1
+10:sizeof
+   http://blog.csdn.net/freefalcon/article/details/54839#0-tsina-1-40985-397232819ff9a47a7b7e80a40613cfe1
+   #pragma pack(4)  // gcc忽略pragma
+   gcc 下通过__attribute__((packed, aligned(8))) 设置默认对齐大小
+   gcc默认对齐大小为4， vc为8
+11： vector为什么每次增长两倍
+   http://stackoverflow.com/questions/1424826/why-is-vector-array-doubled
+
    
