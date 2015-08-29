@@ -5,7 +5,7 @@ This is the knowledge about c++ which I have seen before. This time, I will clas
 
 
 #命名格式
-   [编号]： 内容
-          链接1
-          链接2
-          ......
+   [编号]： 内容    
+          链接1   
+          链接2   
+          ......   
