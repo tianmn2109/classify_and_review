@@ -56,5 +56,11 @@ c++ 资料
    http://blog.csdn.net/daniel_ice/article/details/6857019#0-tsina-1-30862-397232819ff9a47a7b7e80a40613cfe1
 16：#error
    http://baike.baidu.com/link?url=Q7UNuIuvZpjgTIcVFwBDV83uyqdA1GcEH3w282kR8-CHBoni0qxluZLKyIQBtxYbonVttdK160VaJN6CPNRy9a
-
+17： static
+   http://blog.csdn.net/keyeagle/article/details/6708077#0-tsina-1-97004-397232819ff9a47a7b7e80a40613cfe1
+   http://www.cnblogs.com/yezhenhan/archive/2011/10/31/2229724.html
+   http://www.cnblogs.com/BeyondAnyTime/archive/2012/06/08/2542315.html
+18: 虚函数的原理及实现
+   http://blog.csdn.net/digu/article/details/1892581#0-tsina-1-35885-397232819ff9a47a7b7e80a40613cfe1
+   http://blog.csdn.net/wuchuanpingstone/article/details/6742465#0-tsina-1-29761-397232819ff9a47a7b7e80a40613cfe1
    
