@@ -1,5 +1,5 @@
 ###c++ 资料
-    134个c++问题 http://www.cnblogs.com/nzbbody/category/518367.html</br>
+134个c++问题 [http://www.cnblogs.com/nzbbody/category/518367.html](http://www.cnblogs.com/nzbbody/category/518367.html)</br>
     
 1：new, delete, malloc, free, operator new, placement new.</br>
      http://www.cnblogs.com/fly1988happy/archive/2012/04/26/2470542.html</br>
@@ -53,15 +53,15 @@
 11： vector为什么每次增长两倍</br>
    http://stackoverflow.com/questions/1424826/why-is-vector-array-doubled</br>
 
-12; c和c++中struct 的却别</br>
+12：c和c++中struct 的却别</br>
    http://blog.csdn.net/yangzhiloveyou/article/details/8536793#0-tsina-1-20230-397232819ff9a47a7b7e80a40613cfe1</br>
    http://www.cnblogs.com/stonehat/archive/2011/10/07/2200629.html</br>
 
-13： 虚析构函数</br>
+13：虚析构函数</br>
    http://www.cnblogs.com/kanego/archive/2011/10/03/virtual_destructor.html</br>
 
 14：c++虚函数引出的问题　　包含内存布局等　　没看完，</br>
-　　http://blog.csdn.net/yangzhiloveyou/article/details/8536686</br>
+   http://blog.csdn.net/yangzhiloveyou/article/details/8536686</br>
 
 15：数组名和数组名取地址的区别</br>
    http://blog.csdn.net/daniel_ice/article/details/6857019#0-tsina-1-30862-397232819ff9a47a7b7e80a40613cfe1 </br>
