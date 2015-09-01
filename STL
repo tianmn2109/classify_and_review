@@ -1,0 +1,26 @@
+1： 空间配置器
+    标准规定的配置器allocator                vector<int, std::allocator<int>> iv;
+    SGISTL实现和采用的配置器alloc, 没有参数  vector<int, std::alloc> iv;
+    SGISTL提供的allocator仅仅是把operator new 和 operator delete简单的包装了一下。
+    实现： construct { new(p) T(value); }，
+           destory {p->~T();},两个版本 destory(first, last, T*); __type_traits<T>::has_trivial_destructor 
+           allocate，          // 底层用malloc和free实现，原因，有realloc还有其他的原因（历史原因），
+           deallocate， 
+    空间的配置与释放：   两级配置器，申请空间大于128B，第一级配置器，否则第二级配置器，
+           无论alloc被定义为第一级还是第二级迭代器，SGI都还为其包装了simpe_alloc类
+           SGISTL第一级配置器
+                  1：allocate直接调用malloc，deallocate直接调用free， 模拟c++的set_new_handler（自己要能手写实现）
+           SGISTL第二级配置器
+                  1：维护16个自由链表，负责16中小型区块的配置，8,16,24....128.
+                  2： 需求快大于128，住哪调用第一级配置器
+            SGISTL第二级配置器的做法：1:超过128移交第一级配置器
+                                      2： 小于128，则以内存池管理，每次配置一块大内存，并维护对应之自由链表，下次若再有相同大小
+                                          的内存，直接从freelist中取出，回收拾加入对应链表；不是8的倍数，上调至8的倍数。
+                                      3： 当对应的freelist没有新的空间，则向内存池申请新的空间，缺省取得20个节点。
+                                      4： 对内存池的空间申请，内存池处理步骤如下： 根据endfree-startfree判断内存池空间生于大小。
+                                                                1：如果充足：分配20个空间
+                                                                2：大于一个空间： 分配能分配的数量
+                                                                3：空间一个都不够： malloc向堆申请空间，申请大小为需求量的两倍加上一个越来越大的附加量。
+                                                                4：检查 有没有空闲的大的 freelist可用，将其分割。
+                                                                5：调用第一级配置器，因为第一级配置器有out-of-memory处理机制，如果可以成功，失败抛出bad_alloc异常。             
+            其他知识点： POD（Plain Old Data） 标量型或者传统的C struct型别。POD型必然拥有trival ctor/dtor/copy/assignment
