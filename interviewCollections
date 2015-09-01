@@ -1,3 +1,6 @@
+1:
+虚函数默认参数问题
+
 #include <iostream>
 using namespace std;
 
