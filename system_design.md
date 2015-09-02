@@ -33,4 +33,8 @@
        http://horicky.blogspot.hk/2010/10/scalable-system-design-patterns.html</br>
     NOSQL Patterns<br>
        http://horicky.blogspot.com/2009/11/nosql-patterns.html
+3： CAP Q&A 
+    https://github.com/henryr/cap-faq
+    一个形象描述CAP的例子
+    http://ksat.me/a-plain-english-introduction-to-cap-theorem/
        
