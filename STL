@@ -24,3 +24,17 @@
                                                                 4：检查 有没有空闲的大的 freelist可用，将其分割。
                                                                 5：调用第一级配置器，因为第一级配置器有out-of-memory处理机制，如果可以成功，失败抛出bad_alloc异常。             
             其他知识点： POD（Plain Old Data） 标量型或者传统的C struct型别。POD型必然拥有trival ctor/dtor/copy/assignment
+            
+2: 迭代器
+        iterator_traits
+        
+        迭代器中最常用到的五种类型： value_type：所指对象的类型
+                                     difference_type：
+                                     pointer：
+                                     reference：函数返回 作为左值
+                                     iterator_category.
+        迭代器种类： 输入迭代器， 输出迭代器， 前向迭代器，双向迭代器，随机存取迭代器（之间关系，concept，refinement）
+        STL的一个命名规则，以算法所能接受的最低阶迭代器类型，来为其迭代器类型参数命名。
+        消除单纯传递调用的函数：
+        iterator源码
+        http://blog.csdn.net/mdl13412/article/details/6640783
