@@ -6,6 +6,7 @@
              或者一致性缓存中,在一致性缓存中性能比在数据库中性能好，如Redis。</br>
            3：强=将一台机器的代码打包成镜像，部署在新的机器上，有工具可以将改动的代码部署到所有服务器上。</br>
    ```
+   
     2：http://www.lecloud.net/post/7994751381/scalability-for-dummies-part-2-database</br>
          ```
       总结：</br>
@@ -19,7 +20,8 @@
                      　SQL tuning</br>
                     4: SQL Join http://www.w3school.com.cn/sql/sql_join.asp</br>
             了解： Redis， memchched， MongoDB， CouchDB， LevelDB.</br>
-         ```      
+         ```     
+         
       3： 1： 缓存 http://www.lecloud.net/post/9246290032/scalability-for-dummies-part-3-cache</br>
           2： 服务器端缓存策略： 页缓存和对象缓存，优缺点</br>
           3：　http://quyennt.com/web-development/server-side-caching-strategies/</br>
