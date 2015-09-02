@@ -29,4 +29,8 @@
           　　     方法2： 用户提交任务计算量大，前端通知任务已经提交，后端计算，有任务队列，计算完通知前端</br>
           　            　RabbitMQ网站手册前三章，深入研究这种设计技术。</br>
           　　            此种问题基本思想是有一个任务队列和一个处理任务的进程</br>。
-
+2： Scalable System Design Patterns （图形形象清楚，涵盖面较广）</br>
+       http://horicky.blogspot.hk/2010/10/scalable-system-design-patterns.html</br>
+    NOSQL Patterns<br>
+       http://horicky.blogspot.com/2009/11/nosql-patterns.html
+       
