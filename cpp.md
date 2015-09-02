@@ -79,3 +79,6 @@
    http://blog.csdn.net/digu/article/details/1892581#0-tsina-1-35885-397232819ff9a47a7b7e80a40613cfe1</br>
    http://blog.csdn.net/wuchuanpingstone/article/details/6742465#0-tsina-1-29761-397232819ff9a47a7b7e80a40613cfe1</br>
    
+19： struct三种初始化方法</br>
+   http://blog.csdn.net/yiya1989/article/details/7844116#0-tsina-1-34363-397232819ff9a47a7b7e80a40613cfe1</br>
+   
