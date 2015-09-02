@@ -37,4 +37,6 @@
     https://github.com/henryr/cap-faq</br>
     一个形象描述CAP的例子</br>
     http://ksat.me/a-plain-english-introduction-to-cap-theorem/</br>
+4: Introduction to Architecting Systems for Scale</br>
+   http://lethain.com/introduction-to-architecting-systems-for-scale/</br>
        
