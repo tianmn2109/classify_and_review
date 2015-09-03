@@ -38,3 +38,6 @@
         消除单纯传递调用的函数：
         iterator源码
         http://blog.csdn.net/mdl13412/article/details/6640783
+3：容器
+        vector: insert算法
+        list： 双向链表，环形链表，归并排序。
