@@ -82,3 +82,26 @@
         编译器不知道调用什么。有纯虚析构函数的类是抽象类，虽然其实现了析构函数。
         RTTI (Run-time type information) 要求类中必须有虚函数，只有含有虚函数才有运行时类型信息
         这也就是为什么dynamic_cast要求基类有虚函数。
+        
+3： 继承
+    派生类没有继承父类的东西：基类的构造函数和析构函数2：基类的友元。
+    虚继承解决多重继承重复的问题。
+    类的成员函数的访问权限是编译时确定的。
+    class Base {
+        public://改成private编译错误
+	            virtual int fun(int i) { cout << "Base::fun(int i) called"; }
+            };
+
+    class Derived: public Base {
+        private:
+            	int fun(int x) { cout << "Derived::fun(int x) called"; }
+        };
+
+        int main()
+        {   
+        	Base *ptr = new Derived;
+        	ptr->fun(10);//编译时确定，基类指针，基类是公有，运行时调用派生类的函数
+        	return 0;
+        }
+    如果在派生类中重新定义基类中的方法，则派生类中同名的函数都会被隐藏，即使他们有不同的参数（此种情况下函数签名不同）。
+
