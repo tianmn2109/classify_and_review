@@ -106,4 +106,35 @@
     如果在派生类中重新定义基类中的方法，则派生类中同名的函数都会被隐藏，即使他们有不同的参数（此种情况下函数签名不同）。
 4:友元
 	友元不能继承，c++中友元和java中友元不同。
+5: this 指针
+	this在累的非静态成员函数中自动添加，对于类X，成员函数为X * const指针， 对于const成员函数，this为
+	const X * const。
+	class Test
+	{
+		private:
+			int x;
+			int y;
+		public:
+			Test (int x = 0, int y = 0) { this->x = x; this->y = y; }
+			Test setX(int a) { x = a; return *this; }//返回引用后就可以输出10,20
+			Test setY(int b) { y = b; return *this; }
+			void print() { cout << "x = " << x << " y = " << y << endl; }
+	};
+
+	int main()
+	{
+		Test obj1;
+		obj1.setX(10).setY(20); //因为返回的不是引用，所以是一个临时对象，并在这个对象上调用setY
+		obj1.print();
+		return 0;
+	}
+	输出10， 0
+	delete this指针：
+	1：this对象是必须是用 new操作符分配的（而不是用new[]，也不是用placement new，
+		也不是局部对象，也不是global对象）；
+	2：delete this后，不能访问该对象任何的成员变量及虚函数（delete this回收的是数据，
+		这包括对象的数据成员以及vtable，不包括函数代码）；
+	3：delete this后，不能再访问this指针。换句话说，你不能去检查它、将它和其他指针
+		比较、和 NULL比较、打印它、转换它，以及其它的任何事情；
+	delete的对象必须是new出来的。
 
