@@ -81,4 +81,6 @@
    
 19： struct三种初始化方法</br>
    http://blog.csdn.net/yiya1989/article/details/7844116#0-tsina-1-34363-397232819ff9a47a7b7e80a40613cfe1</br>
+20： delete this</br>
+    http://www.cppblog.com/xmli/archive/2009/08/18/93683.html</br>
    
