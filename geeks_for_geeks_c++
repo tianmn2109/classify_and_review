@@ -197,3 +197,41 @@
 9:重载 
 	c++中成员函数的重载不能发生在基类和派生类之间。
    	c++中不能重载main， 如果要重载main，可以将其作为类的成员函数。
+10： 操作符重载
+	赋值操作符可以被继承。
+	++a 返回的是引用，a++返回的 是临时变量。
+	编译器不会自动创建默认的赋值运算符的情况。
+	1：类中含有非静态的常量或者引用。
+	2：类中有个数据成员，此成员的复制赋值操作不可用。
+	3：此类从基类派生而来，但基类，没有copy函数不访问。
+	流操作符重载：必须是全局函数，如果要访问类的私有数据成员，应该将其设置为friend函数。
+	#include <iostream>
+	using namespace std;
+ 
+	class Complex
+	{
+	private:
+    		int real, imag;
+	public:
+	 	Complex(int r = 0, int i =0)
+    		{  real = r;   imag = i; }
+		 friend ostream & operator << (ostream &out, const Complex &c);
+    		friend istream & operator >> (istream &in,  Complex &c);
+	};
+ 
+	ostream & operator << (ostream &out, const Complex &c)
+	{
+		 out << c.real;
+    		out << "+i" << c.imag << endl;
+	 	return out;
+	}
+ 
+	istream & operator >> (istream &in,  Complex &c)
+	{
+    		cout << "Enter Real Part ";
+    		in >> c.real;
+		 cout << "Enter Imagenory Part ";
+		 in >> c.imag;
+		 return in;
+	}
+ 
