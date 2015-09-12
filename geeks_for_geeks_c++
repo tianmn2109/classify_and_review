@@ -239,4 +239,206 @@
  12：misc
  	常量对象不能调用非const函数。
         局部类不可以包含静态成员函数，但是可以包含静态类。
+ -----------------------------------------------------------------------------------------
+ 程序的输出
+ -----------------------------------------------------------------------------------------
+ #include<iostream>
+ 
+using namespace std;
+class Base1 {
+ public:
+     Base1()
+     { cout << " Base1's constructor called" << endl;  }
+};
+ 
+class Base2 {
+ public:
+     Base2()
+     { cout << "Base2's constructor called" << endl;  }
+};
+ 
+class Derived: public Base1, public Base2 {
+   public:
+     Derived()
+     {  cout << "Derived's constructor called" << endl;  }
+};
+ 
+int main()
+{
+   Derived d;
+   return 0;
+}
+Ouput:
+Base1’s constructor called
+Base2’s constructor called
+Derived’s constructor called
+-----------------------------------------------------------------------------------
+#include<iostream>
+using namespace std;
+ 
+class base {
+  int arr[10];     
+};
+ 
+class b1: virtual public base { };
+ 
+class b2: virtual public base { };
+ 
+class derived: public b1, public b2 {};
+ 
+int main(void)
+{ 
+  cout<<sizeof(derived);
+  getchar();
+  return 0;
+}
+Output：48
+-----------------------------------------------------------------------------------
+#include<iostream>
+using namespace std;
+ 
+class Test
+{
+public:
+  Test();
+};
+ 
+Test::Test()  {
+    cout<<"Constructor Called \n";
+}
+ 
+int main()
+{
+    cout<<"Start \n";
+    Test t1();
+    cout<<"End \n";
+    return 0;
+}
+Output: 
+Start
+End
+// reason: Note that the line “Test t1();” is not a constructor call. Compiler considers this line as declaration
+of function t1 that doesn’t recieve any parameter and returns object of type Test.
+-----------------------------------------------------------------------------------------------------------------
+#include<iostream>
+ 
+using namespace std;
+ 
+class Test {
+    int &t;
+public:
+    Test (int &x) { t = x; }
+    int getT() { return t; }
+};
+ 
+int main()
+{
+    int x = 20;
+    Test t1(x);
+    cout << t1.getT() << " ";
+    x = 30;
+    cout << t1.getT() << endl;
+    return 0;
+}
+Output: Compiler Error
+Since t is a reference in Test, it must be initialized using Initializer List. Following is the modified program. 
+It works and prints “20 30″.
 
+#include<iostream>
+ 
+using namespace std;
+ 
+class Test {
+    int &t;
+public:
+    Test (int &x):t(x) {  }
+    int getT() { return t; }
+};
+ 
+int main() {
+    int x = 20;
+    Test t1(x);
+    cout << t1.getT() << " ";
+    x = 30;
+    cout << t1.getT() << endl;
+    return 0;
+}
+----------------------------------------------------------------------------------------------------------------
+#include<iostream>
+#include<string.h>
+using namespace std;
+ 
+class String
+{
+    char *p;
+    int len;
+public:
+    String(const char *a);
+};
+ 
+String::String(const char *a)
+{
+    int length = strlen(a);
+    p = new char[length +1];
+    strcpy(p, a);
+    cout << "Constructor Called " << endl;
+}
+ 
+int main()
+{
+    String s1("Geeks");
+    const char *name = "forGeeks";
+    s1 = name;
+    return 0;
+}
+Output:
+
+Constructor called
+Constructor called
+The first line of output is printed by statement “String s1(“Geeks”);” and the second line is printed by 
+statement “s1 = name;”. The reason for the second call is, a single parameter constructor also works as 
+a conversion operator 
+--------------------------------------------------------------------------------------------------------
+#include<iostream>
+using namespace std;
+ 
+class Base 
+{
+public:
+    int fun()      { cout << "Base::fun() called"; }
+    int fun(int i) { cout << "Base::fun(int i) called"; }
+};
+ 
+class Derived: public Base 
+{
+public:
+    int fun(char x)   { cout << "Derived::fun(char ) called"; }
+};
+ 
+int main() 
+{
+    Derived d;
+    d.fun();
+    return 0;
+}
+Output: Compiler Error.
+In the above program, fun() of base class is not accessible in the derived class. If a derived class creates 
+a member method with name same as one of the methods in base class, then all the base class methods with this 
+name become hidden in derived class (See this for more details)
+-------------------------------------------------------------------------------------------------------------
+#include <iostream>
+using namespace std;
+ 
+template <int i>
+int fun()
+{
+   i =20; 
+}
+ 
+int main() {
+   fun<4>();
+   return 0;
+}
+The value of nontype parameters must be constant as they are used at compile time to create instance of 
+classes/functions. In the above program, templated fun() receives a nontype parameter and tries to modify 
+it which is not possible. Therefore, compiler error.
