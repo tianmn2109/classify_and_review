@@ -29,7 +29,7 @@
      
 2: Design an Email sender, need to send 100,000000 emails and you have 5 machines how could you do it efficiently.
   : 设计系统时，从以下几个方面分析：
-      系统中有哪些对象，每个对象提供什么服务，最好能用API或者函数名写出服务，或者功能模块。
+      系统中有哪些对象，每个对象提供什么服务，对象之间的关系，最好能用API或者函数名写出服务，或者功能模块。
   link: http://www.careercup.com/question?id=6257006711144448
   
   answer:
