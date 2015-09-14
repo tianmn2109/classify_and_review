@@ -24,3 +24,53 @@
      All are almost identical to one another.
      Get the file and send the data to the specific exchange proxy. You are done.
      The individual exchange proxies are command processors.
+     
+2: Design an Email sender, need to send 100,000000 emails and you have 5 machines how could you do it efficiently.
+  : 设计系统时，从以下几个方面分析：
+      系统中有哪些对象，每个对象提供什么服务，最好能用API或者函数名写出服务，或者功能模块。
+  link: http://www.careercup.com/question?id=6257006711144448
+  
+  answer:
+  I think the interviewer was expecting a lot of questions to clarify. Sometimes, they keep the questions vague 
+     intentionally.
+  I am only going to consider the information provided here by OP and post my thoughts.
+
+Requirements:
+-> Send 100 Million emails (don't know the time frame, but assuming 1 day for now)
+-> 5 machines to send emails. Client machine who sends the email is not included here
+-> All machines are of same processing power
+
+Let's go top down:
+
+-> 100 Million emails can be divided into 5 machines, not necessary uniform, but approximately it would translate to 20 M 
+  per machine
+-> 20 M / 24 hours means 231 emails per sec
+-> This means that there are 231 QPS required approximately for a single machine on an average
+
+Email Service:
+-> A service that would accept messages via open socket connection
+-> Validates the message before sending it asynchronously 
+-> Sends response back to caller/client with success failure. In case of failure, it sends appropriate Error messages
+-> Has retry mechanism for certain types of errors (e.g. network error)
+-> Uses message queuing system like Rabbit MQ to send messages (RabbitMQ can convert SMTP messages to AMQP) to send emails
+-> You don't need this really since you are using Rabbit MQ, but can implement throttling using token bucket algorithm
+
+Email Client Lib:
+1. Validates the email content before sending it to Email Service (e.g. maximum size of attachment, parameters of the email,
+etc.)
+2. Compresses the message before sending to reduce network traffic
+3. Retry logic in certain failure scenarios (e.g. in case email sever is busy, it can back off before retrying)
+
+Client API can include following steps:
+1. Setting SMTP Client : SetUpEmail(host, port, enableSSL, deliveryMethod, credentials)
+2. Setting up Email: CreateEmail(sourceEmail, destEmail, subject, body, attachment)
+
+Email Service APIs can be created in a similar way. I guess the idea here is to design than code. 
+
+As of security, SMTP requires credentials. We are also compressing the packet while sending it on network and using SSL 
+to send email. Should be pretty safe. You can add encryption from client to server in addition to compression, if your
+email includes unicode characters.
+
+We can discuss about the challenges of this design:
+1. Availability: One of the machines might go down affecting the performance
+2. Scalability: You can add more machines to make it scalable, but then you would have to update your design accordingly.
