@@ -1,0 +1,44 @@
+1:  There is Ticketing vending machine which accepts Rs.1, Rs.2 and Rs. 5 coins. There is Rs. 5 Ticket. 
+     System will reject all invalid coins for ex. Rs 0.50, Rs. 0.25, Rs 10. 
+     System will not return any money or ticket if coin is invalid.
+     
+     link:　http://www.careercup.com/question?id=5681376118439936
+
+----------------------------------------------------------------------------------------------------------------------------
+
+2:  Design a your own Youtube. Which has feature like play, pause, resume, stop. Note that, 
+    -	multiple users can be access multiple videos. 
+    - Mutiple users can access same video at same time or different time. 
+    - Need to tackle performance bottoleneck.
+    
+    link: http://www.careercup.com/question?id=6210671312109568
+ 
+ ----------------------------------------------------------------------------------------------------------------------------
+    
+3: This interview was held 3 years back. adding this question for others reference. 
+
+  Design a picasa.i.e. A photo album application where user can store his pictures and share 
+  among the others using their email ids. 
+
+  You need provide high level design for server and client. 
+
+  I explained about 
+  - storage on RDBMS database ( Interviewer was expecting some datwarehousing or NOSql over here but 
+    I could not explain as was not aware of it till that time)   
+  - Different sizes of photo storage. 
+  - Cache for recently accessed photos 
+  - Cache for most accessed photos 
+  - Regional servers 
+  - Disaster management, clustering, HA
+  
+  link: http://www.careercup.com/question?id=5086873187778560
+  
+  -------------------------------------------------------------------------------------------------------------------------
+  
+ 4: Design Elevator system. And then write an algorithm for that Design such that, the user request should be
+    completed in logN time in a N story building with M elevators.
+    
+    link: http://www.careercup.com/question?id=6224859417804800
+    
+  --------------------------------------------------------------------------------------------------------------------------
+  
