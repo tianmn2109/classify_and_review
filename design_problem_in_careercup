@@ -1,0 +1,26 @@
+1: Suppose you want to design a application which will be receiving thousands of requests from many clients.
+   And Application need to update received infomration to different servers in real time. What mechanism will you use? 
+  
+  For ex. Your application receives thousands of requests shares values along with exchange name from different client 
+  and application need pass it to different exchange servers ex. Mumbai Exchange, NSE and few more. 
+  Application need to pass information to specific servers in real time. 
+
+  Here is sample data your application will receive in fraction of seconds from mutiple clients. 
+  110 share1 BOMEXCHG 
+  222 share2 BOMEXCHG 
+  5677 share3 NSE 
+  5690 share3 BOMEXCHG 
+  : 
+  : 
+  :
+  link: http://www.careercup.com/question?id=6313784551407616
+  
+  answer: 
+  1:Queue mechanism with Event based architecture could be the better option.
+  2: Goldman Sachs is still trying to Hire, eh? 
+     It is a trivial problem with a very trivial solution.
+     The precise formulation is this.
+     Get a proxy for all exchanges - you can call them event sink so if you please.
+     All are almost identical to one another.
+     Get the file and send the data to the specific exchange proxy. You are done.
+     The individual exchange proxies are command processors.
