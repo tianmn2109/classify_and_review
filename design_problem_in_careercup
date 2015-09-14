@@ -24,6 +24,8 @@
      All are almost identical to one another.
      Get the file and send the data to the specific exchange proxy. You are done.
      The individual exchange proxies are command processors.
+
+---------------------------------------------------------------------------------------------------------------------
      
 2: Design an Email sender, need to send 100,000000 emails and you have 5 machines how could you do it efficiently.
   : 设计系统时，从以下几个方面分析：
@@ -74,3 +76,37 @@ email includes unicode characters.
 We can discuss about the challenges of this design:
 1. Availability: One of the machines might go down affecting the performance
 2. Scalability: You can add more machines to make it scalable, but then you would have to update your design accordingly.
+
+--------------------------------------------------------------------------------------------------------------------------
+
+3：How would you design a price tracking website like camelcamelcamel.com? 
+   For example, we might want the following behavior. Input: Item URL and target price. 
+   Result: if the item goes below the target price, then users tracking the item will get an email alert. 
+
+   Consider the following topics in the answer: database design (SQL or NoSQL), automated price checking mechanism, price scraping or price API, caching data.
+
+   link： http://www.careercup.com/question?id=5734770984091648
+   
+   Following is the minimal DB design required to support the requirement
+
+UserPriceTrackingData
+User_id | Item_id | Price limit | expiry_date
+
+ItemPrice
+Item_id | Price
+
+User
+User_id | User_email
+
+API's exposed:
+1) UpdatePrice, params: item_id, price
+Prices will be updated using UpdatePrice api and will be stored in ItemPrice table.
+2) AddTrackingData, params: user_id, item_id, tracking price
+User can enter price tracking data using AddTrackingData will be stored in UserPriceTrackingData with request 
+expiry_date set to, say, 30 days later. If the price is already below the tracking price, a email is sent straightaway.
+
+Worflow:
+Whenever UpdatePrice is called to update the price, a background task will try match the UserPriceTrackingData entry 
+for the item with tracking price larger than the new price. If a match is found, an email is sent.To expedite it, 
+we can cache the tracking data for the most frequently updated items.
+  
