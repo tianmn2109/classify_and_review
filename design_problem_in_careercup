@@ -110,3 +110,32 @@ Whenever UpdatePrice is called to update the price, a background task will try m
 for the item with tracking price larger than the new price. If a match is found, an email is sent.To expedite it, 
 we can cache the tracking data for the most frequently updated items.
   
+----------------------------------------------------------------------------------------------------------------------
+
+4：Design a push notification system for android. Assume that we have 1 million users this year, 
+　　but next year we will have 15 million. Assume that Google can handle infinite notifications per second. 
+
+　I would love to see this answered, as I did not answer it well.  
+　
+　link: http://www.careercup.com/question?id=5167925411446784
+　
+　answer:
+　Let's start with definition what is "push notification". We can define it as "A push notification is a message delivered 
+　by a centralized server to an endpoint device." In our case the endpoint device is an android device. Then we need to 
+　figure out how a device will receive a message. One of the simple approaches could be to open socket to listen messages 
+　from server when the device is up. It may be performed by system or a special system application. So the device tries 
+　to reach server by general DNS name like push.android.com. Initial requests to open connection goes through load balancer 
+　and is delegated to one of servers behind balancer. That will help us to extend number of servers to support more clients 
+　without affects to architecture. There are connection timeout handlers, we can assign to this handlers initialization of 
+　connection. Thus if a server is down all its client will get event that connection is closed and it leads to new 
+　establishing of connection again though the load balancer. It is worth also to support redundancy for load balancer level. 
+  Now it is time to discuss what is 'a message'. Nowaday this is usual thing to base the message format on XML or JSON. Cons
+  of this approach in comparing with binary format is increasing of data transfer size, but because it is not anticipated to 
+  have long message this should be OK. 
+  The last question is a conception of guarantee delivery. By default we include guarantee delivery in scope that means 
+  if a server gets down or a device is not available then we don't send notification although a client of your push 
+  notification solution sends notification. This is not so good. To resolve this case we should introduce persistence 
+  layer to keep messages and delivery statuses. When a client of our push notification solution initiates sending a message
+  we create a row in DB. Then the server which is responsible to send message for the specified device pick up the row and 
+  tries to send it to device and is waiting for acknowledgement. When acknowledgement is getting back to the server it 
+  updates row to reflect successful delivery.
