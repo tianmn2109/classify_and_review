@@ -1,0 +1,10 @@
+1: Design a system where you can reutrn top 20 queries made in last 24 hours to users. 
+
+   Think on the scale of Google and Yahoo. How would you store data. What will be your data structures, 
+   algorithm to get that data.Describe your assumptions etc. 
+
+   For simplicity, you can assume that every web server create a log file with query and timestamp.
+   
+   link: http://www.careercup.com/question?id=14796868
+   
+   solution: http://www.quora.com/How-can-you-find-top-20-queries-of-the-day-on-Google
