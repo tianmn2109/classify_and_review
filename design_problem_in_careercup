@@ -139,3 +139,53 @@ we can cache the tracking data for the most frequently updated items.
   we create a row in DB. Then the server which is responsible to send message for the specified device pick up the row and 
   tries to send it to device and is waiting for acknowledgement. When acknowledgement is getting back to the server it 
   updates row to reflect successful delivery.
+
+-------------------------------------------------------------------------------------------------------------------------
+
+5: Imagine you're designing a Web Service for a phone application that returns a list of suggested Words that may complete
+   a given string the user types. 
+
+   For example, if the user writes "ap", a list of suggested words may contain ["apple", "application", "aptitude", ...].
+   
+   Assume English only words and no misspelling. 
+
+   I gave a solution with tries and interviewer asked for an alternative solution (I was thinking something along the 
+   lines of hashing but time ran out and I couldn't put together anything concrete). I mentioned a couple ways I could 
+   optimize my idea, but felt short on that area. For example, ways to return smaller lists, ranking, caching, etc. 
+   
+   link: http://www.careercup.com/question?id=5971029612560384
+   
+   answer: 1
+   I would also start with trie. 
+   Second option is the compressed trie. 
+   Last one is hashing: 
+   If we are talking about the real words it is hard to imagine the dictionary with the elements length more than 10 average.
+   Also we probably don't want to store more than 10-20 suggestions for user (we can update frequency or use other idea to
+   choose the right words) but for each prefix (or prefix hash and length) we can store a set of suggestions. Of course we 
+   store only prefixes we have in the dictionary. So in other words we use the prefix with length X as the key and words 
+   (only 10 best as values).
+   
+   answer 2:
+   Ternary search tree will be a good solution. It will not use extra space like trie. 
+ 
+    The ternary search tree contains three types of arrows. First, there are arrows that correspond to arrows in
+    the corresponding trie. Traversing a down-arrow corresponds to “matching” the character from which the arrow starts.
+    The left- and right- arrow are traversed when the current character does not match the desired character at the
+    current position. We take the left-arrow if the character we are looking for is alphabetically before the 
+    character in the current node, and the right-arrow in the opposite case.
+
+
+.
+             A
+		    :   \
+		    B    B
+		    :    :
+	    	C    C
+	      /	:   :
+	     B   D   D
+	     :
+	     A
+	  The elements are ABCD,ABBA,BCD
+	  
+	------------------------------------------------------------------------------------------------------------------
+	
