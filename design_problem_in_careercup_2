@@ -63,5 +63,12 @@
  
  ---------------------------------------------------------------------------------------------------------------------------
  
- 
+ 8: Designa a phone book - basically contact book on phone. 
+    Give data structures and give time complexity to search a phone number. 
+    Ex: search - freeninza and if found in your phone book return the mobile number of user.
+    //面百度外卖第二面面试官问了这道设计题。好需要支持部分搜索功能。
+    
+    link: http://www.careercup.com/question?id=14859673
+    
+ ---------------------------------------------------------------------------------------------------------------------------   
  
