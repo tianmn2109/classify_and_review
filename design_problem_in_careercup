@@ -206,3 +206,29 @@ we can cache the tracking data for the most frequently updated items.
    settings etc.
 
 ------------------------------------------------------------------------------------------------------------------
+
+9: design a distributed system to find the 1000th visitor of google.com
+
+    link: http://www.careercup.com/question?id=14607665
+    
+    answer 1:
+    In a distributed system, generally a global clock is maintained for the purpose of sychronization. 
+    In absence of global clock, the distributed systems send a copy of their local clock (refer Chandy-Lamport 
+    algorithm or Vector clocks). A similar way of transmitting the count of the user access should be designed. 
+    Note: The above text is not a solution for this question. It is just a thought process that I have shared.
+    
+    answer 2:
+    Though why not this be a trick maintain a counter type variable when a particular system gets a visitor he reads 
+    the count incr the count and then when the new user enters other system , inc the counter,when he gets new user , 
+    i guess before a traffic is split they come to a central point where we can keep this counter variable , when 
+    counter reaches 1000,i am done , dont know if its correct
+    
+    ------------------------------------------------------------------------------------------------------------------
+    
+   10:design the backend system(data structure) of facebook's "like" button
+   
+   I would say that the Like button is a way to create an edge in the OpenGraph between the user and the liked entity.
+   So in my opinion the question is more like: Design a way to represent such a huge graph with different type of edges 
+   (likes, friendships, etc...)
+   
+   11: 
