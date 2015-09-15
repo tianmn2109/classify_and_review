@@ -1,0 +1,12 @@
+1: A file contains a billion integers, try to find any one integer that is not in the file.
+
+link: http://www.careercup.com/question?id=14804692
+
+answer: 
+Considering an unsigned 32 bit integer 
+There are 2^32 possible values ( about 4 Billion ) 
+Allocate a single bit for each value ( This would required 512 MB of memory ) 
+Read the file, for each integer I, set ith bit to 1 
+Once reading file is complete 
+find the first bit which is not 1 
+print the number corresponding to this bit.
