@@ -4,4 +4,19 @@
     
     link: http://www.careercup.com/question?id=14795841
     
-    answer1: http://www.careercup.com/question?id=14795841
+    answer1:
+    I would probably say that maintain a minHeap should be a good way to go ! 
+
+    1.) Assumption is that each paper has the a count that represents the number of times its been read. 
+
+    Algorithm (basic idea): 
+
+    1.) Everytime a paper is read. extract the min from the heap, and then check if the count is greater than or 
+         equal to the paper extracted from the heap. 
+    a.) If it is greater, search for the paper in the heap O(log n) 
+    b.) change the count to count +1. O(1) 
+    c.) call heapify to reflect the change O(log n) 
+    2.) Obviously, if the count is less than the min paper extracted, just change the count of the paper to 
+        count + 1 and don't do anything with the heap. 
+
+    Note: Heap construction is based on the count (number of times a paper is read).
