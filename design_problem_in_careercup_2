@@ -83,3 +83,29 @@
     
     link: http://www.careercup.com/question?id=14688762
    ---------------------------------------------------------------------------------------------------------------------------   
+11: Design a system for showing quotes on the web? 
+
+     For example, when the user is looking at page A, part of which is reproduced in page B, the system could highlight
+     part of page A present the user with a link to page B. 
+     What constitutes a quote? 
+     How do you find quotes? 
+     How do you make it scale to the web? 
+     How do you handle updates? 
+     How would you arrange the servers? 
+     What data structures would you use?
+     
+     link: http://www.careercup.com/question?id=14680782
+     
+     ---------------------------------------------------------------------------------------------------------------------------   
+12:　Design a system to support Facebook status update
+
+　　　　link: http://www.careercup.com/question?id=14712676
+　　　　
+　　answer: 
+　　This is a good explanation, also is linked to a video where a facebook Engineer briefly explains how the newsfeed 
+　　works in stack overflow: what-is-the-design-architecture-behind-facebooks-status-update-mechanism 
+     Observer Pattern is very heavy for facebook since they have so many users. According to the video they cache the
+     latest status updates for every user in their memcache server, and everytime a user wants to look at their news
+     feed it hits those servers and get the top stories 
+     
+      ---------------------------------------------------------------------------------------------------------------------------   
