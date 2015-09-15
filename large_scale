@@ -20,3 +20,10 @@
         count + 1 and don't do anything with the heap. 
 
     Note: Heap construction is based on the count (number of times a paper is read).
+--------------------------------------------------------------------------------------------------------------------    
+2： single machine,，given a dictionary(key->value),every entry takes 1KB，totally10 Million个entry，
+    single mutex protecting the dictionary，mutex takes 512 Byte，What potential problems do you see and how would 
+    you address them?
+    
+    link: http://www.careercup.com/question?id=14847691
+--------------------------------------------------------------------------------------------------------------------    
