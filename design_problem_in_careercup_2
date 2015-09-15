@@ -54,4 +54,14 @@
  
  ---------------------------------------------------------------------------------------------------------------------------
  
+ 7: 	Design the recommendation system for search keywords
+ 
+ link: http://www.careercup.com/question?id=14722670
+ 
+ answer:
+ keywords->word analysis -> search data index -> merge & filter data -> ranking -> show back to user.
+ 
+ ---------------------------------------------------------------------------------------------------------------------------
+ 
+ 
  
