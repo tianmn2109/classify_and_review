@@ -231,4 +231,31 @@ we can cache the tracking data for the most frequently updated items.
    So in my opinion the question is more like: Design a way to represent such a huge graph with different type of edges 
    (likes, friendships, etc...)
    
-   11: 
+    ------------------------------------------------------------------------------------------------------------------
+   
+   11: Design a elevator
+   
+   link: http://www.careercup.com/question?id=3170692
+   
+   answer:
+   I think: 
+	ask question querying what part of designing elevator he wants, kinda clarifying with him that all the physical 
+	system exists, and you have few magical classes for input and output that will do actual work. 
+	YOur work will be to co-ordinates the input classes with output/work classes. 
+
+	First ask how much time you have ? 
+	What level of details you expect ? (HLL / UML / low level / algo / interfaces) 
+
+	1. First define i/p o/p interface. 
+	2. The code converting messages from ip to op. 
+	Design state automata for that 
+	3. Dont forget to make the desgin testable 
+	4. Algo duplication / code duplication if correctness is EXTREMELY important. 
+	(e.g. suppose the elevator was used save the world mission of armageddon mission) 
+	5. Design for extension. No limit on floor numbers, or teleporting between floors, 
+	multiple lifts. 
+	Think of partial lifts. No all lifts stop at every floor. et cetra ... 
+
+	By the time you touch all the features, and put a basic UML, 1 hour will be up and he will be impressed by 
+	your wide thiking.....
+------------------------------------------------------------------------------------------------------------------
