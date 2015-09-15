@@ -108,4 +108,9 @@
      latest status updates for every user in their memcache server, and everytime a user wants to look at their news
      feed it hits those servers and get the top stories 
      
-      ---------------------------------------------------------------------------------------------------------------------------   
+      --------------------------------------------------------------------------------------------------------------------
+13： Given a webserver how will you handle load performance (eg the server can handle only 10000 connections at any
+     point of time)
+     
+     link: http://www.careercup.com/question?id=7564681
+     --------------------------------------------------------------------------------------------------------------------
