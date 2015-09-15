@@ -188,4 +188,21 @@ we can cache the tracking data for the most frequently updated items.
 	  The elements are ABCD,ABBA,BCD
 	  
 	------------------------------------------------------------------------------------------------------------------
-	
+6: Design the backend for a Gmail-like mail system
+   
+   link:http://www.careercup.com/question?id=14601669
+   
+   There are multiple steps in designing this. format for storing user info is the last thing. First we need to think 
+   about data storage. Think about Availability, concsistency, replication, tolerance. For gmail like system, it 
+   should be strongly consistent. It should be available and hence it needs to be replicated both within the datacenter 
+   as well as across datacenter. BigTable/HBASE like system will work for this. Next level is to support a webservice 
+   which can interact with webclient as well as mobile client. This should support any mail format like IMAP/POp3. 
+   A load balancer need to be installed at the front to receive connections. when a user sends a mail, the webservice 
+   needs to call the appropriate storage service to store the mail contents to the sent users. It needs to call the 
+   notification service to notify the users. This requires that the webclient keep a persistent TCP connection. 
+   The server will push the notification on this connection. For mobile clients the notification service should push 
+   the message to mobile push service. This mobile push service needs to handle the case of pushing the notification 
+   through carrier. This is the basics. Then we can talk about more features like seraching the older mails, filters, 
+   settings etc.
+
+------------------------------------------------------------------------------------------------------------------
