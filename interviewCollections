@@ -1,4 +1,5 @@
 1:
+//JD
 虚函数默认参数问题
 
 #include <iostream>
@@ -28,4 +29,29 @@ The default value is used at compile time. When compiler sees that an argument i
 in a function call, it substitutes the default value given. Therefore, in the above program,
 value of x is substituted at compile time, and at run time derived class’s fun() is called.
 In general, it is a best practice to avoid default values in virtual functions to avoid confusion.
+*/
+
+
+2:
+//JD
+下面程序的运行结果是什么？
+int main(void){
+    int n[][3] = {10, 20, 30, 40, 50, 60};
+    int (*p)[3];
+    p = n;
+    cout << p[0][0] << ", " << *(p[0]+1) << ", " << **(p+1) << ", " << *(p+1) << ", " << (*p)[2] << endl;
+    cout << "sizeof(p): " << sizeof(p) << endl;
+    cout << "sizeof(*p): " << sizeof(*p) << endl;
+    cout << "sizeof(p[0]): " << sizeof(p[0]) << endl;
+    return 0;
+}
+
+/*
+//Output:
+lxw classify_and_review$ ./a.out 
+10, 20, 40, 0xbfe6d2e4, 30
+sizeof(p): 4
+sizeof(*p): 12
+sizeof(p[0]): 12
+lxw classify_and_review$ 
 */
