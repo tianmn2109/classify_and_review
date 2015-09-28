@@ -55,3 +55,35 @@ sizeof(*p): 12
 sizeof(p[0]): 12
 lxw classify_and_review$ 
 */
+
+3:
+//IQIYI
+#include <iostream>
+using namespace std;
+
+class A{
+public:
+	virtual void f(){cout << "A::f()" << endl;}
+};
+
+class B : public A{
+public:
+	virtual void f(){cout << "B::f()" << endl;}
+	void g(){cout << "B::g()" << endl;}
+};
+int main(void){
+	B b;
+	A * a = &b;
+	a->f();		//B::f()
+	b.g();		//B::g()
+	//a->g(); //compile error.
+	a->A::f();	//NOTE: A::f()
+	return 0;
+}
+
+/*
+lxw ~$ ./a.out 
+B::f()
+B::g()
+A::f()
+*/
